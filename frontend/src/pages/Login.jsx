@@ -20,7 +20,7 @@ setForm({
 const handleLogin = async () => {
 try {
 const res = await axios.post(
-"https://laundrygo-production.up.railway.app/api/auth/login",
+"https://energetic-delight-production.up.railway.app/api/auth/login",
 form
 );
 
