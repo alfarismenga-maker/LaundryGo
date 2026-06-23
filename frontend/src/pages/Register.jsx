@@ -21,7 +21,7 @@ setForm({
 const handleRegister = async () => {
 try {
 await axios.post(
-"http://localhost:5000/api/auth/register",
+"https://laundrygo-production.up.railway.app/api/auth/register",
 form
 );
 

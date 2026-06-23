@@ -24,7 +24,7 @@ loadStats();
 const loadOrders = async () => {
 try {
 const res = await axios.get(
-"http://localhost:5000/api/orders"
+"https://laundrygo-production.up.railway.app/api/orders"
 );
 
 
@@ -39,7 +39,7 @@ const res = await axios.get(
 const loadStats = async () => {
 try {
 const res = await axios.get(
-"http://localhost:5000/api/orders/stats/dashboard"
+"https://laundrygo-production.up.railway.app/api/orders/stats/dashboard"
 );
 
 
@@ -54,7 +54,7 @@ const res = await axios.get(
 const updateStatus = async (id, status) => {
 try {
 await axios.put(
-`http://localhost:5000/api/orders/${id}`,
+`https://laundrygo-production.up.railway.app/api/orders/${id}`,
 { status }
 );
 
@@ -73,7 +73,7 @@ await axios.put(
 const showQr = async (id) => {
 try {
 const res = await axios.get(
-`http://localhost:5000/api/qrcode/${id}`
+`https://laundrygo-production.up.railway.app/api/qrcode/${id}`
 );
 
 

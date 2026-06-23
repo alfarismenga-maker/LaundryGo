@@ -22,7 +22,7 @@ function Dashboard() {
  const loadOrders = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:5000/api/orders/user/${user.id}`
+      `https://laundrygo-production.up.railway.app/api/orders/user/${user.id}`
     );
 
     console.log(res.data);
@@ -60,7 +60,7 @@ function Dashboard() {
     }
 
     await axios.post(
-      "http://localhost:5000/api/orders",
+      "https://laundrygo-production.up.railway.app/api/orders",
       {
         user_id: user.id,
         service_type: form.service_type,
@@ -89,7 +89,7 @@ function Dashboard() {
 const showQr = async (id) => {
   try {
     const res = await axios.get(
-      `http://localhost:5000/api/qrcode/${id}`
+      `https://laundrygo-production.up.railway.app/api/qrcode/${id}`
     );
 
     setQrImage(res.data.qr);
