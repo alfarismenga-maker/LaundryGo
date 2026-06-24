@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 
 function Login() {
 const navigate = useNavigate();
@@ -19,10 +19,7 @@ setForm({
 
 const handleLogin = async () => {
 try {
-const res = await axios.post(
-"https://energetic-delight-production.up.railway.app/api/auth/login",
-form
-);
+const res = await api.post("/api/auth/login", form);
 
 
   localStorage.setItem(

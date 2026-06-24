@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 
 function Dashboard() {
   const user = JSON.parse(
@@ -21,9 +21,7 @@ function Dashboard() {
 
  const loadOrders = async () => {
   try {
-    const res = await axios.get(
-      `https://laundrygo-production.up.railway.app/api/orders/user/${user.id}`
-    );
+    const res = await api.get(`/api/orders/user/${user.id}`);
 
     console.log(res.data);
 
@@ -59,8 +57,8 @@ function Dashboard() {
       return;
     }
 
-    await axios.post(
-      "https://laundrygo-production.up.railway.app/api/orders",
+    await api.post(
+      "/api/orders",
       {
         user_id: user.id,
         service_type: form.service_type,
@@ -88,9 +86,7 @@ function Dashboard() {
 /* TAMBAHKAN DI SINI */
 const showQr = async (id) => {
   try {
-    const res = await axios.get(
-      `https://laundrygo-production.up.railway.app/api/qrcode/${id}`
-    );
+    const res = await api.get(`/api/qrcode/${id}`);
 
     setQrImage(res.data.qr);
   } catch (error) {

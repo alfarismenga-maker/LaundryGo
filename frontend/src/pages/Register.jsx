@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 
 function Register() {
 const navigate = useNavigate();
@@ -20,10 +20,7 @@ setForm({
 
 const handleRegister = async () => {
 try {
-await axios.post(
-"https://energetic-delight-production.up.railway.app/api/auth/register",
-form
-);
+await api.post("/api/auth/register", form);
 
 
   alert("Register berhasil");

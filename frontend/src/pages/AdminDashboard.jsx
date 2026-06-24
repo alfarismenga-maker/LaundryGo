@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 
 function AdminDashboard() {
 const user = JSON.parse(
@@ -23,9 +23,7 @@ loadStats();
 
 const loadOrders = async () => {
 try {
-const res = await axios.get(
-"https://laundrygo-production.up.railway.app/api/orders"
-);
+const res = await api.get("/api/orders");
 
 
   setOrders(res.data);
@@ -38,9 +36,7 @@ const res = await axios.get(
 
 const loadStats = async () => {
 try {
-const res = await axios.get(
-"https://laundrygo-production.up.railway.app/api/orders/stats/dashboard"
-);
+const res = await api.get("/api/orders/stats/dashboard");
 
 
   setStats(res.data);
@@ -53,8 +49,8 @@ const res = await axios.get(
 
 const updateStatus = async (id, status) => {
 try {
-await axios.put(
-`https://laundrygo-production.up.railway.app/api/orders/${id}`,
+await api.put(
+`/api/orders/${id}`,
 { status }
 );
 
@@ -72,9 +68,7 @@ await axios.put(
 
 const showQr = async (id) => {
 try {
-const res = await axios.get(
-`https://laundrygo-production.up.railway.app/api/qrcode/${id}`
-);
+const res = await api.get(`/api/qrcode/${id}`);
 
 
   setQrImage(res.data.qr);
